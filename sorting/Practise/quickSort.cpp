@@ -9,7 +9,7 @@ void swap(int *x,int *y){
 }
 int pivot(int a[],int low, int high){
 	int pivot=a[high];
-	int p=low;
+	int p=low-1;
 	for(int i=low;i<high;i++){
 		if(a[i]<=pivot){
 			p++;
