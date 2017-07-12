@@ -11,6 +11,7 @@ int main(){
 		cout<<"Enter 2 nodes to connect";
 		cin>>x>>y;
 		a[x-1][y-1]=1;
+		a[y-1][x-1]=1;
 		cout<<"Node Connected.";
 
 		cout<<"\n\nContinue ? 1/0 : ";cin>>flag;
