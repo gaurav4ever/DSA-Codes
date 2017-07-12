@@ -17,6 +17,8 @@ int main(){
 		if(flag==0)break;
 	}
 
+	cout<<"\nAdjencency Matrix of Graph is : \n";
+
 	for(int i=0;i<n;i++){
 		for(int j=0;j<n;j++){
 			cout<<a[i][j]<<" ";
