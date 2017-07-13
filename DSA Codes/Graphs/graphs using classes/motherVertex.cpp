@@ -13,12 +13,13 @@ public:
 		adj=new list<int>[x];
 	}
 	void addEdge(int x,int y);
-	void bfs(int x);
+	int bfs(int x);
 };
 void Graph::addEdge(int x,int y){
 	adj[x].push_back(y);
 }
-void Graph::bfs(int v){
+int Graph::bfs(int v){
+	int count=1;
 	bool *visited=new bool[V];
 	for(int i=1;i<=V;i++)visited[i]=false;
 
@@ -29,14 +30,15 @@ void Graph::bfs(int v){
 	while(!q.empty()){
 		int v=q.front();
 		visited[v]=true;
-		cout<<v<<"->";
+		//cout<<v<<"->";
+		count++;
 		q.pop();
 		for(i=adj[v].begin();i!=adj[v].end();i++)
 			if(!visited[*i]){
 				q.push(*i);
 			}
 	}
-	
+	return count;
 }
 int main(){
 	Graph g(7);
@@ -48,6 +50,12 @@ int main(){
     g.addEdge(5, 6);
     g.addEdge(5, 2);
     g.addEdge(6, 0);
+    int val,pos,max=0;
+    for(int i=0;i<7;i++){
+    	val=g.bfs(i);
+    	if(val>max){max=val;pos=i;}
+    }
 
-    g.bfs(2);
+    cout<<"Mother vertex is :"<<pos;
+    
 }
