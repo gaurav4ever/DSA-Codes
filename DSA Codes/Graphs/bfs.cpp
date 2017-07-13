@@ -21,13 +21,6 @@ void addVertex(int val){
 
 	v[v_count++]=temp;
 }
-int adjVertex(int val){
-	for(int i=1;i<=n;i++){
-		if(adj[val][i]==1 && v[i]->visited==false)
-			return i;
-	}
-	return -1;
-}
 void display(int x){cout<<x<<" ";}
 void bfs(){
 	v[1]->visited=true;
