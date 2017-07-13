@@ -8,31 +8,28 @@ class Graph{
 	int V;
 	list<int> *adj;
 public:
-	Graph(int x);
-	void addEdge(int a,int b);
+	Graph(int x){
+		this->V=x;
+		adj=new list<int>[x];
+	}
+	void addEdge(int x,int y);
 	void dfsUtil(int x,bool visited[]);
 	void dfs(int x);
 };
-Graph::Graph(int x){
-	this->V=x;
-	adj=new list<int>[x];
-}
 void Graph::addEdge(int x,int y){
 	adj[x].push_back(y);
 }
 void Graph::dfsUtil(int v,bool visited[]){
 	visited[v]=true;
 	cout<<v<<"->";
-	list<int>::iterator i;  //iterator is a pointer
-	for(i=adj[v].begin();i!=adj[v].end();i++){
+	list<int>::iterator i;
+	for(i=adj[v].begin();i!=adj[v].end();i++)
 		if(!visited[*i])
 			dfsUtil(*i,visited);
-	}
 }
 void Graph::dfs(int v){
 	bool *visited=new bool[V];
-	for(int i=1;i<=V;i++)
-		visited[i]=false;
+	for(int i=1;i<=V;i++)visited[i]=false;
 
 	dfsUtil(v,visited);
 }
@@ -45,6 +42,5 @@ int main(){
     g.addEdge(2, 3);
     g.addEdge(3, 3);
 
-    g.dfs(2);
-	return 0;
+    g.dfs(1);
 }
