@@ -7,7 +7,7 @@ using namespace std;
 int n;
 int v_count=1;
 stack<int> s;
-int adj[MAX][MAX];
+int adj[MAX+1][MAX+1];
 
 struct dfs{
 	int node;
@@ -30,9 +30,9 @@ int adjVertex(int val){
 }
 void display(int x){cout<<x<<" ";}
 void dfs(){
-	v[0]->visited=true;
-	display(v[0]->node);
-	s.push(v[0]->node);
+	v[1]->visited=true;
+	display(v[1]->node);
+	s.push(v[1]->node);
 
 	while(!s.empty()){
 		int val=adjVertex(s.top());
@@ -54,18 +54,24 @@ int main(){
 	for(int i=1;i<=n;i++){
 		addVertex(i);
 	}
-	for(int i=0;i<MAX;i++)for(int j=0;j<MAX;j++)adj[i][j]=0;
+	for(int i=1;i<=MAX;i++)for(int j=1;j<=MAX;j++)adj[i][j]=0;
 
 	int x,y,flag=0;
 	while(1){
 		cout<<"Enter 2 vertices to connect";
 		cin>>x>>y;
-		adj[x-1][y-1]=1;
-		adj[y-1][x-1]=1;
+		adj[x][y]=1;
+		adj[y][x]=1;
 		cout<<"Node Connected.";
 
 		cout<<"\n\nContinue ? 1/0 : ";cin>>flag;
 		if(flag==0)break;
+	}
+
+	for(int i=1;i<=MAX;i++){
+		for(int j=1;j<=MAX;j++)
+			cout<<adj[i][j]<<" ";
+		cout<<endl;
 	}
 
 	dfs();
