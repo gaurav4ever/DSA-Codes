@@ -36,6 +36,7 @@ void dfs(){
 
 	while(!s.empty()){
 		int val=adjVertex(s.top());
+		// cout<<"top : "<<s.top()<<endl;
 		if(val==-1){
 			s.pop();
 		}else{
@@ -68,8 +69,8 @@ int main(){
 		if(flag==0)break;
 	}
 
-	for(int i=1;i<=MAX;i++){
-		for(int j=1;j<=MAX;j++)
+	for(int i=1;i<=n;i++){
+		for(int j=1;j<=n;j++)
 			cout<<adj[i][j]<<" ";
 		cout<<endl;
 	}
