@@ -2,8 +2,8 @@
 #include <conio.h>
 #include <list>
 #include <stack>
-
 using namespace std;
+
 class Graph{
 	int V;
 	list<int> *adj;
