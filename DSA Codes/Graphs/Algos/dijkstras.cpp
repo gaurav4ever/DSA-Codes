@@ -14,7 +14,7 @@ int min(int val[V],bool vertices[V]){
 	}
 	return pos;
 }
-void prims(int path[V][V],int dis[]){
+void prims(int path[V][V]){
 	bool vertices[V];
 	int val[V];
 	int ans[V];
@@ -37,7 +37,6 @@ void prims(int path[V][V],int dis[]){
 
 	for(int i=1;i<V;i++){
 		cout<<"0 -> "<<i<<" : "<<val[i]<<endl;
-		//cout<<ans[i]<<"->"<<i<<" Weight : "<<path[i][ans[i]]<<endl;
 	}
 }
 int main(){
@@ -51,6 +50,6 @@ int main(){
                       {8, 11, 0, 0, 0, 0, 1, 0, 7},
                       {0, 0, 2, 0, 0, 0, 6, 7, 0}
                      };
-    prims(path,dis);
+    prims(path);
 	return 0;
 }
