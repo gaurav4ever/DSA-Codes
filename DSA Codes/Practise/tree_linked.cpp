@@ -107,6 +107,21 @@ void level(struct tree *t,int h){
 	for(int i=1;i<=h;i++)
 		level_order(t,i);
 }
+int ml=0;
+void leftView(struct tree *t,int level,int *ml){
+
+	if(t==NULL)return;
+	//cout<<"ml : "<<*ml<<" level : "<<level<<endl;
+	if(*ml<level){
+		cout<<t->val<<"->";
+
+		*ml=level;
+		
+	}
+
+	leftView(t->left,level+1,ml);
+	leftView(t->right,level+1,ml);
+}
 void find(struct tree *t,int a,int b){
 	int h_a=height_node(t,a);
 	int h_b=height_node(t,b);
@@ -131,7 +146,7 @@ int main(){
 	int repeat=1;
 	while(repeat!=0){
 		cout<<"1. Insert\n2. Delete\n3. Display\n4. Height\n5. Lowest Common Ancestor\n6. Level Order Traversal\n7. Shortest Distance between two nodes";
-		cout<<"\n8. Height of Node\n9. Mirror Tree\n Choose : ";
+		cout<<"\n8. Height of Node\n9. Mirror Tree\n10. Print left View\n Choose : ";
 		int x;cin>>x;
 		switch(x){
 			case 1:{
@@ -186,6 +201,12 @@ int main(){
 			case 9:		mirror(t);
 						display(t);
 						mirror(t);
+						break;
+
+			case 10:{
+						//int ml=0;
+						leftView(t,1,&ml);
+				}	
 						break;
 
 			default:	cout<<"Invalid Choice!\n";
