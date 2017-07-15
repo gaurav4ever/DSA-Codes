@@ -15,7 +15,7 @@ int main(){
 	bitset<8> x(leftOnes);
 	cout<<"leftOnes : "<<x<<endl;
 
-	int rightOnes=((1<<i)-1);
+	int rightOnes=(1<<i)-1; //reverse bit 1->0 0->1
 	bitset<8> y(rightOnes);
 	cout<<"rightOnes : "<<y<<endl;
 
