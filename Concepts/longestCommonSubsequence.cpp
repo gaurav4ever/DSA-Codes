@@ -2,6 +2,7 @@
 #include <conio.h>
 #include <string.h>
 #include <stdio.h>
+#include <stack>
 using namespace std;
 
 int max(int a,int b){
@@ -9,6 +10,7 @@ int max(int a,int b){
 	return b;
 }
 int main(){
+	stack<int>stack;
 	int n,m;
 	cout<<"Enter length of string 1 :  ";cin>>n;
 	cout<<"Enter length of string 2 :  ";cin>>m;
@@ -43,18 +45,21 @@ int main(){
 
 	cout<<"LCS : "<<a[n][m];
 
-	for(int i=n;i>=0;){
-		for(int j=m;j>=0;j){
-			if(s1[i]==s2[j]){
-				cout<<s1[i];
-				i--;j--;
-			}else{
-				if(a[i-1][j]>a[i][j-1])i--;
-				else j--;
-			}
+	int i=n;j=m;
+	while(i>0 && j>0){
+		if(s1[i]==s2[j]){
+			stack.push(s1[i]);
+			i--;j--;
+		}else{
+			if(a[i-1][j]>a[i][j-1])i--;
+			else j--;
 		}
-		cout<<endl;
-	}	
+	}
+
+	while(!stack.empty()){
+		cout<<stack.push()<<" ";
+		stack.pop();
+	}
 
 	return 0;
 }
