@@ -29,8 +29,6 @@ int main(){
 			c[i]=0;
 		else c[i]=b[k++];
 	}
-
-	// for(int i=0;i<n;i++)cout<<c[i]<<" ";
 	int max=0;
 	for(int i=0;i<n;i++){
 		max+=(a[i]*c[i]);
