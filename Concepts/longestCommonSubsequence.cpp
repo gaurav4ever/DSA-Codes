@@ -42,5 +42,19 @@ int main(){
 	}	
 
 	cout<<"LCS : "<<a[n][m];
+
+	for(int i=n;i>=0;){
+		for(int j=m;j>=0;j){
+			if(s1[i]==s2[j]){
+				cout<<s1[i];
+				i--;j--;
+			}else{
+				if(a[i-1][j]>a[i][j-1])i--;
+				else j--;
+			}
+		}
+		cout<<endl;
+	}	
+
 	return 0;
 }
