@@ -11,6 +11,13 @@ int main(){
 	cout<<ptr<<endl;
 
 	int *ptr2=fun();
-	cout<<ptr2;
+	cout<<ptr2<<endl;
 	return 0;
+
+	int *ptr3;
+	{
+		int x=5;
+		ptr3=&x;
+	}
+	cout<<ptr3;
 }
