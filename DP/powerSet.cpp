@@ -5,7 +5,7 @@ void powerSet(char set[],int n){
 	int counter=pow(2,n);
 	for(int i=0;i<counter;i++){
 		for(int j=0;j<n;j++){
-			if(i & 1<<j)
+			if(i & 1<<j) // counter and check if jth bit is set : it represent the charachter 
 				cout<<set[j];
 		}
 		cout<<endl;
