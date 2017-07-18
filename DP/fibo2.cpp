@@ -4,9 +4,9 @@
 #include <iostream>
 #include <algorithm>
 using namespace std;
-int f[1000000];
+int f[1000001];
 #define mod 1000000007
-int fibo(int a,int b,int n){
+int fibo(long long int a,long long int b,long long int n){
     if(n==0)return a;
     if(n==1)return b;
     if(f[n]!=0)return f[n];
@@ -17,9 +17,9 @@ int main() {
     int t;
     cin>>t;
     while(t--){
-        int a,b,n;
+        long long int a,b,n;
         cin>>a>>b>>n;
-        for(int i=0;i<1000000;i++)f[i]=0;
+        for(int i=0;i<1000001;i++)f[i]=0;
         cout<<fibo(a,b,n)%mod<<endl;
     }
     return 0;
