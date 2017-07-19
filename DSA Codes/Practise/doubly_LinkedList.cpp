@@ -85,6 +85,17 @@ void reverse(struct node *d){
 	cout<<d->val<<"->";
 
 }
+struct node* makeReverse(struct node *d){
+	struct node *p=NULL,*c=d;
+	while(c!=NULL){
+		p=c->prev;
+		c->prev=c->next;
+		c->next=p;
+		c=c->prev;
+	}
+	if(p!=NULL)d=p->prev;
+	return d;
+}
 void display(struct node *d){
 	struct node *t=d;
 	cout<<"\n Length : "<<length<<endl;
@@ -104,7 +115,8 @@ int main(){
 		cout<<"4. Deletion."<<endl;
 		cout<<"5. Searching."<<endl;
 		cout<<"6. Print in Reverse."<<endl;
-		cout<<"7. Display."<<endl;
+		cout<<"7. Reverse the list."<<endl;
+		cout<<"8. Display."<<endl;
 		cout<<"Choose : ";
 		int c;
 		cin>>c;
@@ -138,7 +150,10 @@ int main(){
 			case 6:	reverse(dl);
 					break;
 
-			case 7: display(dl);
+			case 7:	dl=makeReverse(dl);
+					break;
+
+			case 8: display(dl);
 					break;
 
 			default: cout<<"Invalid Choice!\n";
