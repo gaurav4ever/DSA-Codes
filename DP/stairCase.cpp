@@ -3,7 +3,7 @@ using namespace std;
 #define max 100000
 int chache[max];
 int find(int n){
-	if(n==1)return 1;
+	if(n==0)return 1;
 	if(n<=0)return 0;
 	if(chache[n]!=-1)return chache[n];
 	chache[n]=find(n-1)+find(n-2)+find(n-3);
