@@ -3,6 +3,8 @@
 #include <stdlib.h>
 #include <string.h>
 #include <cstring>
+#include <vector>
+#include <map>
 
 using namespace std;
 
@@ -141,12 +143,32 @@ struct tree* mirror(struct tree *t){
 	}
 	return t;
 }
+void getVerticalDistance(struct tree *t,map< int,vector<int> > &m,int hd){
+	if(t==NULL)return;
+
+	m[hd].push_back(t->val);
+	getVerticalDistance(t->left,m,hd-1);
+	getVerticalDistance(t->right,m,hd+1);
+}
+void verticalPrint(struct tree *t){
+	map< int,vector<int> >m;
+	int hd=0;
+	getVerticalDistance(t,m,hd);
+
+	map< int,vector<int> >::iterator it;
+	for(it=m.begin();it!=m.end();it++){
+		for(int i=0;i<it->second.size();i++){
+			cout<<it->second[i]<<" ";
+		}
+		cout<<endl;
+	}
+}
 int main(){
 	struct tree *t=NULL;
 	int repeat=1;
 	while(repeat!=0){
 		cout<<"1. Insert\n2. Delete\n3. Display\n4. Height\n5. Lowest Common Ancestor\n6. Level Order Traversal\n7. Shortest Distance between two nodes";
-		cout<<"\n8. Height of Node\n9. Mirror Tree\n10. Print left View\n Choose : ";
+		cout<<"\n8. Height of Node\n9. Mirror Tree\n10. Print left View\n11. Vertical Print\n Choose : ";
 		int x;cin>>x;
 		switch(x){
 			case 1:{
@@ -207,6 +229,9 @@ int main(){
 						//int ml=0;
 						leftView(t,1,&ml);
 				}	
+						break;
+
+			case 11:	verticalPrint(t);
 						break;
 
 			default:	cout<<"Invalid Choice!\n";
