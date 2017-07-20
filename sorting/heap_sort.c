@@ -56,4 +56,5 @@ int main()
 	printf("Sorted array : ");	
 	for(i=0;i<n;i++)
 	printf("%d ",a[i]);
+getch();
 }
