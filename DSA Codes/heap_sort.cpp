@@ -9,8 +9,8 @@ void heapify(struct heap *heapp,int i){
 	int large=i;
 	int l=2*i+1;
 	int r=2*i+2;
-	if(l<heapp->size && heapp->a[l]>heapp->a[large])large=l;
-	if(r<heapp->size && heapp->a[r]>heapp->a[large])large=r;
+	if(l<heapp->size && heapp->a[l]<heapp->a[large])large=l;
+	if(r<heapp->size && heapp->a[r]<heapp->a[large])large=r;
 	if(large!=i){
 		int temp=heapp->a[i];
 		heapp->a[i]=heapp->a[large];
