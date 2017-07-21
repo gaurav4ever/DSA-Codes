@@ -6,12 +6,14 @@ using namespace std;
 map< int,vector<int> >mymap;
 
 int yo=0;
+int mCounter=0;
 void powerSet(int set[],int n){
 	int counter=pow(2,n);
 	int flag=1;
 	for (int i=0; i <n; i++){
 		 for (int j=i; j<n; j++){
 		 	for (int k=i; k<=j; k++){
+		 		mCounter++;
 				mymap[yo].push_back(set[k]);
 			}
 			yo++;
@@ -20,7 +22,7 @@ void powerSet(int set[],int n){
 }
 int main(){
 	int n,m;
-	cin>>n>>m;
+	cin>>n;
 	int set[n];
 	for(int i=0;i<n;i++)cin>>set[i];
 	powerSet(set,n);
@@ -34,6 +36,8 @@ int main(){
 		}
 		cout<<endl;
 	}
+
+	cout<<"\n\n counter : "<<mCounter;
 
 	// while(m--){
 	// 	int x,y;

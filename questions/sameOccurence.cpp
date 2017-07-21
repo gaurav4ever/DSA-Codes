@@ -6,16 +6,22 @@ using namespace std;
 map< int,vector<int> >mymap;
 
 int k=0;
+bool check(int x){
+	int n=x | (x-1);
+	if(n&(n+1))return true;
+	return false;
+}
 void powerSet(int set[],int n){
 	int counter=pow(2,n);
 	int flag=1;
 	for(int i=0;i<counter;i++){
 		for(int j=0;j<n;j++){
-			if(i & 1<<j){
-				mymap[k].push_back(set[j]);
-				flag=0;
-			} 
-				
+			if(!check(i)){
+				if(i & 1<<j){
+					mymap[k].push_back(set[j]);
+					flag=0;
+				} 
+			}	
 		}
 		if(flag==0)
 			k++;
