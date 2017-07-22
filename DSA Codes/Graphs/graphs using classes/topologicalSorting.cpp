@@ -26,7 +26,7 @@ void Graph::tsUtil(int v,bool visited[],stack<int> &s){
 		if(!visited[*i])
 			tsUtil(*i,visited,s);
 	}
-	s.push(v);
+	s.push(v);  // vertex v is visited completely, now add it to stack
 }
 void Graph::ts(){
 	stack<int> s;
