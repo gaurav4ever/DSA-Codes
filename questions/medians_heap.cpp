@@ -1,6 +1,6 @@
 /* Sample program illustrating input and output */
-#include<iostream>
-#include<set>
+#include <iostream>
+#include <set>
 using namespace std;
 int main()
 {
