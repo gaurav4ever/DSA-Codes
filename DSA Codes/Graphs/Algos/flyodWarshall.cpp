@@ -1,3 +1,5 @@
+// Check for intermediate vertex distance
+
 #include <iostream>
 #include <conio.h>
 #include <limits.h>
@@ -7,7 +9,7 @@ using namespace std;
 #define INF 100
 void fw(int path[V][V]){
 
-	for(int v=0;v<V;v++){
+	for(int v=0;v<V;v++){ // intermediate vertex
 		for(int i=0;i<V;i++){
 			for(int j=0;j<V;j++){
 				if(path[i][v]+path[v][j]<path[i][j])

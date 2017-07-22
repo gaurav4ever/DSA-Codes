@@ -1,3 +1,6 @@
+// Check if vertex v is reachable to vertex u
+// If yes make tc[v][u]=1
+// else 0
 #include <iostream>
 #include <conio.h>
 #include <list>
