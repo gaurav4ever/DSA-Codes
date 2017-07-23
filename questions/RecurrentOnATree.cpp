@@ -23,7 +23,7 @@ void getDistance(int i,int sum){
 
 int main() {
 
-	std::ios::sync_with_stdio(false);
+	
 
 	fibo[0]=1;fibo[1]=1;C=2;
 
