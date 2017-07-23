@@ -10,7 +10,7 @@ void toh(int n,char from,char to,char buffer){
 	toh(n-1,buffer,to,from);
 }
 int main(){
-	int c=3;
+	int c=5;
 	toh(c,'a','b','c');
 	return 0;
 }
