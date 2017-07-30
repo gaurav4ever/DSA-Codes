@@ -14,7 +14,6 @@ int main(){
 			val+=j;
 			count++;
 			if(val>n)break;
-			//cout<<val<<" ";
 			a[val]+=1;
 			j++;
 		}
