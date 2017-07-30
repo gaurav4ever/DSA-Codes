@@ -16,7 +16,6 @@ int main() {
         for(int i=0;i<n;i++)cin>>a[i];
         int changed_pos=0;
         for(int i=1;i<n/2;i++){
-            int 
             if(a[i-1]%2==0 && a[i+1]%2==0){
                 int val=(a[i-1]+a[i+1])/2;
                 if(abs(val-a[n-i-1]) > abs(a[i]-a[n-i-1])){
