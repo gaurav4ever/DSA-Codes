@@ -5,6 +5,7 @@ int main(){
 	int counter=0;
 
 	string str="123456";
+	
 	int n=str.length();
 	 for (int i = 0; i <n; i++)
         {
