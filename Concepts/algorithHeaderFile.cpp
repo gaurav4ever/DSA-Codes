@@ -24,7 +24,12 @@ int main(){
 	vector<int> a(9);
 	for(int i=1;i<10;i++)a[i]=i;
 
-	cout<<*max_element(a.begin(),a.end());
+	vector<int>::iterator it;
+	it=max_element(a.begin(),a.end());
+
+
+	cout<<&it<<endl;
+	// cout<<&max_element(a.begin(),a.end());
 
 	return 0;
 }
