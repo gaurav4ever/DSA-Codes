@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>15</title>
+	<style type="text/css">
+		body{
+			background: #99FFFF;
+		}
+		h1{
+			font-style: italic;
+			font-weight: bold;
+			text-align: center;
+			color: maroon;
+		}
+		table{
+			margin-left: 35%;
+			border: 5px solid #000;
+			border-width: 30%;
+			border-spacing: 10px;
+		}
+		#dis,#dis_price{
+			text-align: center;
+			font-weight: bold;
+		}
+		#dis{
+			font-size: 25px;
+		}
+		#dis_price{
+			font-style: italic;
+			color: #ff0000;
+			font-size: 40px;
+		}
+	</style>
+</head>
+<body>
+	<h1>DISCOUNT PRICE</h1>
+	<table>
+		<tbody>
+			<tr>
+				<td>Product Name</td>
+				<td>
+					<input type="text" name="name" pattern="[A-Za-z ]{1,}" value="Voltas Air Conditioner" required>
+				</td>
+			</tr>
+			<tr>
+				<td>Product Price</td>
+				<td>
+					<input type="text" id="price" name="price" value="45000" pattern="[0-9]{1,}"
+					 required>
+				</td>
+			</tr>
+			<tr>
+				<td>Season</td>
+				<td>
+					<select id="sale">
+						<option>SUMMER SALE</option>
+						<option>NEW YEAR SALE</option>
+						<option>CLEARANCE SALE</option>
+					</select>
+				</td>
+			</tr>
+		</tbody>
+	</table>
+	<br>
+	<center>
+		<button id="cal" onclick="cal();">GET DISCOUNT PRICE</button>
+	</center>
+	<br>
+	<div id="dis">
+		
+	</div>
+	<div id="dis_price">
+		
+	</div>
+	<script type="text/javascript">
+		function cal(){
+			var price=parseInt(document.getElementById("price").value);
+
+			var sale=document.getElementById("sale").value;
+			if(sale=="SUMMER SALE"){
+				var final=price-price*0.1;
+
+				document.getElementById("dis").innerHTML="The discount is 10%";
+				document.getElementById("dis_price").innerHTML="The discount price : Rs "+final;
+
+			}else if(sale=="NEW YEAR SALE"){
+
+				var final=price-price*0.05;
+				document.getElementById("dis").innerHTML="The discount is 5%";
+				document.getElementById("dis_price").innerHTML="The discount price : Rs "+final;	
+
+			}else{
+
+				var final=price-price*0.15;
+				document.getElementById("dis").innerHTML="The discount is 15%";
+				document.getElementById("dis_price").innerHTML="The discount price : Rs "+final;	
+
+			}
+			
+		}
+	</script>
+</body>
+</html>

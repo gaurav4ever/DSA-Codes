@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+	<style type="text/css">
+		body{
+			background: cyan;
+		}
+	</style>
+</head>
+<body>
+	<h1>Online Registration Form</h1>
+	<form action="success.html">
+	<table>
+		<tbody>
+			<tr>
+				<td>User Name*</td>
+				<td>
+					<input type="text" name="username" placeholder="Enter User Name" pattern="[A-Za-z ]{1,}"required>
+				</td>
+			</tr>
+			<tr>
+				<td>Password*</td>
+				<td>
+					<input type="Password" name="password" pattern="(?=.*\d)(?=.*[^a-zA-z0-9])(?=.*[a-zA-z]).{6,}">
+				</td>
+			</tr>
+			<tr>
+				<td>Address</td>
+				<td>
+					<textarea></textarea>
+				</td>
+			</tr>
+			<tr>
+				<td>Country</td>
+				<td>
+					<input list="country" name="country">
+					  <datalist id="country">
+					    <option value="India">
+					    <option value="America">
+					    <option value="China">
+					    <option value="Ireland">
+					  </datalist>
+				</td>
+			</tr>
+			<tr>
+				<td>Gender*</td>
+				<td>
+					<input type="radio" name="gender" required>Male<br>
+					<input type="radio" name="gender" required>Female
+				</td>
+			</tr>
+			<tr>
+				<td>Languages Known*</td>
+				<td>
+					<input type="checkbox" name="lang" >Hindi<br>
+					<input type="checkbox" name="lang" >English<br>
+					<input type="checkbox" name="lang" >Tamil<br>
+				</td>
+			</tr>
+			<tr>
+				<td>
+					<input type="image" name="submit" src="submit.png">
+				</td>
+
+				<td><input type="reset" name="reset" value="Reset"></td>
+			</tr>
+		</tbody>
+	</table>
+	</form>
+</body>
+</html>

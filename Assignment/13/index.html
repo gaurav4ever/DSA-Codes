@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>13</title>
+	<style type="text/css">
+		body{
+			background: #1de9b6 ;
+		}
+		#contactUs{
+			width: 200px;
+			-webkit-transition: all 0.2s ease;
+	       -moz-transition: all 0.2s ease;
+	         -o-transition: all 0.2s ease;
+	            transition: all 0.2s ease;
+		}
+		#contactUs:hover{
+			-webkit-transform: scale(1.1);
+			 -moz-transform: scale(1.1);
+			 -ms-transform: scale(1.1);
+			 -o-transform: scale(1.1);
+			 transform: scale(1.1);
+		}
+		td{
+			padding-right: 20px;
+		}
+	</style>
+</head>
+<body>
+	<h1>Movie Ticket Booking</h1>
+	<form id="myForm" action="thankyou.html">
+	<table>
+		<tbody>
+			<tr>
+				<td>Name</td>
+				<td>
+					<input type="text" name="name" placeholder="Enter the Name" pattern="[A-Za-z ]{1,}" required>
+				</td>
+			</tr>
+			<tr>
+				<td>Movie Name</td>
+				<td>
+					<input list="movie" name="movie" required>
+					  <datalist id="movie">
+					    <option value="Irada">
+					    <option value="Rangoon">
+					    <option value="Logan">
+					    <option value="Fist Fight">
+					  </datalist>
+				</td>
+			</tr>
+			<tr>
+				<td>Circle</td>
+				<td>
+					<input list="circle" name="circle" required>
+					  <datalist id="circle">
+					    <option value="Silver">
+					    <option value="Gold">
+					    <option value="Platinum">
+					  </datalist>
+				</td>
+			</tr>
+			<tr>
+				<td>Phone no</td>
+				<td>
+					<input type="number" name="phone" placeholder="Enter Mobile # here" pattern="[0-9]{10}" required> 
+				</td>
+			</tr>
+			<tr>
+				<td>Show date and time</td>
+				<td>
+					<input type="datetime-local" name="date" id="date" required>
+				</td>
+			</tr>
+			<tr>
+				<td>No of tickets</td>
+				<td>
+					<input type="number" name="tickets" id="tickets" required>
+				</td>
+			</tr>
+			<tr>
+				<td>No of children</td>
+				<td>
+					<input type="number" name="children" id="children" required>
+				</td>
+			</tr>
+			<tr>
+				<td>
+					<input type="button" onclick="check();" value="Submit">
+				</td>
+				<td>
+					<input type="reset" name="reset" value="Reset">
+				</td>
+			</tr>
+		</tbody>
+	</table>
+	</form>
+	<br>
+	<img src="img1.png" id="contactUs">
+
+	<script type="text/javascript">
+		function check(){
+			var flag=1;
+
+			var tickets=parseInt(document.getElementById("tickets").value);
+			var children=parseInt(document.getElementById("children").value);
+			if(tickets<children){
+				alert("No of tickets should be greater than the no of children");
+				flag=0;
+			}
+
+			var date=document.getElementById("date").value;
+			var d1=parseInt(Date.parse(date));
+
+			var cd=new Date();
+			var d2=parseInt(Date.parse(cd));
+			if(d1<d2){
+				alert("Show date and time should be either current date or future date");
+				flag=0;
+			}
+			
+			if(flag==1){
+				var price=200*parseInt(document.getElementById("tickets").value) - 100*parseInt(document.getElementById("children").value);
+				alert("Your approximate ticket amount is "+ price +" INR");
+				document.getElementById("myForm").submit();
+			}
+		}
+	</script>
+</body>
+</html>

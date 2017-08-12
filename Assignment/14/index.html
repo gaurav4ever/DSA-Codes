@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>14</title>
+	<style type="text/css">
+		p{
+			color: #ff0000;
+			width: 400px;
+			height: 90px;
+		}
+		#show{
+			font-size: 36px;
+			width: 550px;
+			height: 65px;
+			color: #fff000;
+		}
+	</style>
+</head>
+<body>
+
+	<p>
+		Machine learning is a type of artificial intelligence (AI) that provides computers with the ability to learn without being explicitly programmed.
+		<a href="#" id="click">click!</a>
+	</p>
+	<div id="show">
+		
+	</div>
+	<script src="https://code.jquery.com/jquery-1.10.2.js"></script>
+	<script type="text/javascript">
+		$(document).ready(function(){
+			$("#click").on('click',function(){
+				$("p").fadeOut(1500);
+				setTimeout(function() {
+					$("#show").html("WELCOME GUYS!");
+				  }, 1550);
+			});
+		});
+	</script>
+</body>
+</html>
