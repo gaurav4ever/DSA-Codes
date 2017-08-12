@@ -12,15 +12,29 @@ void insert(int x){
 
 	if(start==NULL)start=n;
 	else{
-		n->next=start;
-		start=n;
+		struct node *t=start;
+		while(t->next!=NULL){
+			t=t->next;
+		}
+		t->next=n;
+	}
+}
+void del(int ele){
+	struct node *t=start;
+	while(t!=NULL){
+		if(t->data==ele){
+			t->data=t->next->data;
+			struct node *temp=t->next;
+			delete(temp);
+			t->next=t->next->next;
+		}
 	}
 }
 void printlist(){
 	struct node *n=new node;
 	n=start;
 	while(n!=NULL){
-		printf("%d ->",n->data);
+		cout<<n->data<<" ";
 		n=n->next;
 	}
 }
@@ -33,5 +47,9 @@ int main(){
 		insert(x);
 	}
 	printlist();
+	int ele;
+	cout<<"Enter the element to be deleted: ";cin>>ele;
+	del(ele);
+	cout<<"The list after deletion: ";printlist();
 	return 0;
 }
