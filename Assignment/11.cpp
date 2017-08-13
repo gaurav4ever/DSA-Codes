@@ -19,17 +19,6 @@ void insert(int x){
 		t->next=n;
 	}
 }
-void del(int ele){
-	struct node *t=start;
-	while(t!=NULL){
-		if(t->data==ele){
-			t->data=t->next->data;
-			struct node *temp=t->next;
-			delete(temp);
-			t->next=t->next->next;
-		}
-	}
-}
 void printlist(){
 	struct node *n=new node;
 	n=start;
@@ -37,6 +26,39 @@ void printlist(){
 		cout<<n->data<<" ";
 		n=n->next;
 	}
+}
+void del(int ele){
+	struct node *t=start;
+	int flag=1;
+	while(1){
+		flag=1;
+		while(t!=NULL){
+
+			if(t->next->data==ele && t->next->next!=NULL){
+				flag=0;
+				t->next->data=t->next->next->data;
+				t->next=t->next->next;
+				struct node *temp=t->next;
+				delete(temp);
+				break;
+			}else if(t->next->data==ele && t->next->next==NULL){
+				flag=0;
+				struct node *temp=t->next;
+				delete(temp);
+				t->next=NULL;
+				break;
+			}else{
+				t=t->next;
+			}
+		
+		}	
+		
+		printlist();
+		cout<<endl;
+		t=start;
+		if(flag==1)break;
+	}
+	
 }
 int main(){
 	int n,x;
@@ -48,8 +70,8 @@ int main(){
 	}
 	printlist();
 	int ele;
-	cout<<"Enter the element to be deleted: ";cin>>ele;
+	cout<<"\nEnter the element to be deleted: ";cin>>ele;
 	del(ele);
-	cout<<"The list after deletion: ";printlist();
+	cout<<"\nThe list after deletion: ";printlist();
 	return 0;
 }
