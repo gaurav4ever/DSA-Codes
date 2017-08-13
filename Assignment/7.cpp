@@ -13,6 +13,7 @@ int main(){
 		for(int i=1;i<=n;i++)cout<<i<<" ";
 
 		cout<<"\nThe served tickets are:\n";
+		
 		for(int i=1;i<=m;i++)cout<<i<<" ";
 
 		if(n==m)cout<<"\nNo more tickets to be served ";
